@@ -24,6 +24,5 @@ import {
     @Column({ nullable: true })
     email: string;
   
-
   }
   

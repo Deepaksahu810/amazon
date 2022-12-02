@@ -8,7 +8,8 @@ async function bootstrap() {
   const port: number = config.get<number>('PORT');
 
   await app.listen(port, () => {
-    console.log('[WEB]',port, config.get<string>('BASE_URL'));
+    console.log('[WEB]',port);
   });
 }
+
 bootstrap();

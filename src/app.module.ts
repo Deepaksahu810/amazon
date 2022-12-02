@@ -2,19 +2,19 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './entities/user'
 import { childrenCategories } from './entities/childrenCategories';
 import { subCategories } from './entities/subCategories';
 import { masterCategories } from './entities/masterCategories';
 import { ConfigModule } from '@nestjs/config';
 import { getEnvPath } from './common/helper/env.helper';
-
+import { ApiModule } from './api/api.module';
 const envFilePath: string = getEnvPath(`src/common/envs`);
 
 @Module({
  
   imports: [
     ConfigModule.forRoot({ envFilePath, isGlobal: true }),
+    ApiModule
     // TypeOrmModule.forRoot({
     //   type: 'mysql',
     //   host: '13.235.68.13',
@@ -22,7 +22,7 @@ const envFilePath: string = getEnvPath(`src/common/envs`);
     //   username: 'recruitbaeuser',
     //   password: 'jtpdsdsd123',
     //   database: 'some',
-    //   entities: [User,childrenCategories,subCategories,masterCategories],
+    //   entities: [childrenCategories,subCategories,masterCategories],
     //   synchronize: true,
     // }),
   ],
